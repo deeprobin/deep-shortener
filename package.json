@@ -1,0 +1,22 @@
+{
+  "name": "deep-shortener",
+  "version": "1.0.0",
+  "description": "My url shortener",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "node ./src/main.js"
+  },
+  "keywords": [
+    "url",
+    "shortener",
+    "url",
+    "shortener"
+  ],
+  "author": "DeepRobin",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "lowdb": "^1.0.0",
+    "pug": "^2.0.3"
+  }
+}

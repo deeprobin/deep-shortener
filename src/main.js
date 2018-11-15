@@ -35,8 +35,17 @@ app.get("/css/style.css", function(req, res){
 });
 
 app.all("/undefined", function(req, res){
-    res.writeHead(404);
+    res.writeHead(200);
     res.send();
+})
+
+app.all("/favicon.ico", function(req, res){
+    res.set({
+        'Content-Type': 'image/x-icon'
+    });
+    fs.readFile(path.join(__dirname,'../public/img/favicon.ico'),function(err, data){
+        res.send(data);
+    });
 })
 
 app.get("/js/script.js", function(req, res){

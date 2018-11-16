@@ -39,7 +39,13 @@ app.all("/favicon.ico", function(req, res){
 app.get("/new/:url", function(req, res){
     var url = Buffer.from(req.params.url, 'base64').toString("utf-8");
     try {
-    var id = generateRandomId();
+    var id = "id"
+    var has = false;
+    while(!has){
+      id = generateRandomId();
+      has = db.has(id)
+    }
+
     db.set(id, url).write()
     res.send(id);
     console.log(req.ip + " created short url(" + id + ") with url " + url);

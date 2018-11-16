@@ -7,8 +7,15 @@ html, body {
     overflow: hidden
 }
 
-body {
+body[theme="colorful"] {
     animation-name: backgroundColor;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    overflow: hidden;
+}
+
+body[theme="dark"] {
+    animation-name: backgroundColorDark;
     animation-duration: 10s;
     animation-iteration-count: infinite;
     overflow: hidden;
@@ -104,6 +111,52 @@ input[type="url"] {
         border-radius: 0;
         margin: 5pt;
         text-align: center;
+    }
+}
+
+@keyframes backgroundColorDark {
+    0% {
+        background-color: rgb(52, 73, 94);
+    }
+
+    10% {
+        background-color: rgb(44, 62, 80);
+    }
+
+    20% {
+        background-color: rgb(39, 60, 117);
+    }
+
+    30% {
+        background-color: rgb(25, 42, 86);
+    }
+
+    40% {
+        background-color: rgb(53, 59, 72);
+    }
+
+    50% {
+        background-color: rgb(47, 54, 64);
+    }
+
+    60% {
+        background-color: rgb(10, 61, 98);
+    }
+
+    70% {
+        background-color: rgb(30, 55, 153)
+    }
+
+    80% {
+        background-color: rgb(12, 36, 97);
+    }
+
+    90% {
+        background-color: rgb(15, 53, 155);
+    }
+
+    100% {
+        background-color: rgb(7, 153, 146);
     }
 }
 

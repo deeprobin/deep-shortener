@@ -11,9 +11,9 @@ db.defaults({urls: {}})
   .write()
 
 // Add a post
-db.get('urls')
-  .push({ /*id: 1, url: 'https://google.de'*/})
-  .write()
+/*db.get('urls')
+  .push({ /*id: 1, url: 'https://google.de'})
+  .write()*/
 
 const express = require('express')
 const app = express()

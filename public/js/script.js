@@ -28,8 +28,10 @@ $(document).ready(function() {
   });
 
   $("#output").click(function() {
-    copyToClipboard(document.getElementById("output"));
-    showCopied();
+    if ($("#output").val() != "") {
+      copyToClipboard(document.getElementById("output"));
+      showCopied();
+    }
   });
 });
 

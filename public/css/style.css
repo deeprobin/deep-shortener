@@ -250,3 +250,31 @@ input[type="url"] {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+
+#footer {
+    background-color: #596275;
+    color: white;
+    width: 100%;
+    height: 48pt;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-family: monospace;
+    text-align: center;
+    font-size: 14pt;
+}
+
+#footer a {
+    text-decoration: none;
+    color: palevioletred;
+    margin-right: 7pt;
+    margin-left: 7pt;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+#footer span {
+    font-size: 8pt;
+}

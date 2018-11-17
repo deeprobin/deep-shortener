@@ -27,6 +27,18 @@ app.all("/undefined", function(req, res){
     res.send();
 })
 
+app.get('/legal', function (req, res) {
+    res.render('legal/legal-disclosure')
+})
+
+app.get('/terms', function (req, res) {
+    res.render('legal/terms')
+})
+
+app.get('/privacy-policy', function (req, res) {
+    res.render('legal/privacy-policy')
+})
+
 app.all("/favicon.ico", function(req, res){
     res.set({
         'Content-Type': 'image/x-icon'

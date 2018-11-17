@@ -1,3 +1,23 @@
+window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#8f820b"
+      },
+      "button": {
+        "background": "#f1d600",
+        "text": "#000000"
+      }
+    },
+    "theme": "edgeless",
+    "position": "bottom-right",
+    "content": {
+      "message": "This website uses cookies to ensure you get the best experience on our website. ",
+      "dismiss": "O.K.",
+      "link": "See cookie policy"
+    }
+  })});
+
 $(document).ready(function() {
   $("#submit").click(function() {
     console.log("submit");

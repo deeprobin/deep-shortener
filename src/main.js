@@ -52,10 +52,11 @@ app.get("/new/:url", function(req, res){
     var url = Buffer.from(req.params.url, 'base64').toString("utf-8");
     try {
     var id = "id"
-    var has = false;
-    while(!has){
+    var has = true;
+    while(has){
       id = generateRandomId();
-      has = db.has(id)
+      //If ID already exists this will be true --> A new ID will be generated until it is false because no ID was found
+      has = db.has(id);
     }
 
     db.set(id, url).write()

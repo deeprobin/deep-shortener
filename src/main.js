@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 

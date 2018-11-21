@@ -1,56 +1,85 @@
-window.addEventListener("load", function(){
+window.addEventListener("load", function() {
   window.cookieconsent.initialise({
-    "palette": {
-      "popup": {
-        "background": "#8f820b"
+    palette: {
+      popup: {
+        background: "#8f820b"
       },
-      "button": {
-        "background": "#f1d600",
-        "text": "#000000"
+      button: {
+        background: "#f1d600",
+        text: "#000000"
       }
     },
-    "theme": "edgeless",
-    "position": "bottom-right",
-    "content": {
-      "message": "This website uses cookies to ensure you get the best experience on our website. ",
-      "dismiss": "O.K.",
-      "link": "See cookie policy"
+    theme: "edgeless",
+    position: "bottom-right",
+    content: {
+      message:
+        "This website uses cookies to ensure you get the best experience on our website. ",
+      dismiss: "O.K.",
+      link: "See cookie policy"
     }
-  })});
+  });
+});
 
-$(document).ready(function() {
-  $("#submit").click(function() {
+function ready(fn) {
+  if (
+    document.attachEvent
+      ? document.readyState === "complete"
+      : document.readyState !== "loading"
+  ) {
+    fn();
+  } else {
+    document.addEventListener("DOMContentLoaded", fn);
+  }
+}
+
+ready(function() {
+  document.getElementById("submit").onclick = function() {
     setTimeout(function() {
-      var text = $("#urlInput").val();
+      var text = document.getElementById("urlInput").value;
       generateShortenLink(text, function(url) {
         if (url != "error") {
-          $("#output").val("https://shrt.deeprobin.de/" + url);
+          document.getElementById("output").value =
+            "https://shrt.deeprobin.de/" + url;
         } else {
           console.error("Shortener Error");
         }
       });
     }, 100);
-  });
-
-  $("#urlInput").on("change keyup keypress paste", function() {
-    var expression = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
-
-    if (new RegExp(expression).test($(this).val() + "/")) {
-      $(this).removeClass("fail");
-      $("#submit").prop("disabled", false);
-    } else {
-      $(this).addClass("fail");
-      $("#submit").prop("disabled", true);
-    }
-  });
-
-  $("#output").click(function() {
-    if ($("#output").val() != "") {
+  };
+  document.getElementById("output").onclick = function() {
+    if (document.getElementById("output").value != "") {
       copyToClipboard(document.getElementById("output"));
       showCopied();
     }
-  });
+  };
+
+  document.getElementById("urlInput").onchange = function(event) {
+    onUrlInputChange(event);
+  };
+  document.getElementById("urlInput").onkeypress = function(event) {
+    onUrlInputChange(event);
+  };
+  document.getElementById("urlInput").onkeyup = function(event) {
+    onUrlInputChange(event);
+  };
+  document.getElementById("urlInput").onpaste = function(event) {
+    onUrlInputChange(event);
+  };
 });
+
+function onUrlInputChange(event) {
+  var expression = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+
+  if (
+    new RegExp(expression).test(document.getElementById("urlInput").value + "/")
+  ) {
+    document.getElementById("urlInput").className = "";
+    document.getElementById("submit").disabled = false;
+  } else {
+    document.getElementById("urlInput").className = "fail";
+    document.getElementById("submit").disabled = true;
+  }
+}
 
 function showCopied() {
   var x = document.getElementById("snackbar");
@@ -61,13 +90,29 @@ function showCopied() {
 }
 
 function generateShortenLink(longUrl, callback) {
-  $.get("/new/" + btoa(longUrl), function(data, status) {
-    if (data === "!!!error!!!") {
-      callback("error");
+  var request = new XMLHttpRequest();
+  request.open("GET", "/new/" + btoa(longUrl), true);
+
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+      var data = request.responseText;
+      if (data === "!!!error!!!") {
+        callback("error");
+      } else {
+        callback(data);
+      }
     } else {
-      callback(data);
+      console.error("XHR errored");
+      callback("error");
     }
-  });
+  };
+
+  request.onerror = function() {
+    console.log("connection error")
+    callback("error");
+  };
+
+  request.send();
 }
 
 function copyToClipboard(elem) {

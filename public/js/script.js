@@ -20,12 +20,10 @@ window.addEventListener("load", function(){
 
 $(document).ready(function() {
   $("#submit").click(function() {
-    console.log("submit");
     setTimeout(function() {
       var text = $("#urlInput").val();
       generateShortenLink(text, function(url) {
         if (url != "error") {
-          console.log("url");
           $("#output").val("https://shrt.deeprobin.de/" + url);
         } else {
           console.error("Shortener Error");
@@ -35,7 +33,6 @@ $(document).ready(function() {
   });
 
   $("#urlInput").on("change keyup keypress paste", function() {
-    console.log("changed input");
     var expression = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
 
     if (new RegExp(expression).test($(this).val() + "/")) {

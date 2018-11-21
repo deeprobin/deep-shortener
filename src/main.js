@@ -1,6 +1,31 @@
 const fs = require('fs');
 const path = require('path');
 
+const winston = require('winston');
+require('winston-daily-rotate-file');
+
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.cli(),
+    transports: [
+      new (winston.transports.DailyRotateFile)({
+        filename: path.join(__dirname, '../', 'data', 'logs', 'log-%DATE%.log'),
+        datePattern: 'YYYY-MM-DD-HH',
+        zippedArchive: true,
+        maxSize: '20m',
+        maxFiles: '14d'
+      })
+    ]
+  });
+  
+  if (process.env.NODE_ENV !== 'production') {
+    logger.add(new winston.transports.Console({
+      format: winston.format.simple()
+    }));
+  }
+
+
+
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 
@@ -67,13 +92,15 @@ app.get("/new/:url", function(req, res) {
 
       db.set(id, url).write();
       res.send(id);
-      console.log(req.ip + " created short url(" + id + ") with url " + url);
+      logger.log('info', req.ip + " created short url(" + id + ") with url " + url);
     } catch (ex) {
       res.send("!!!error!!!");
-      console.error("Errored: " + ex);
+      logger.log('error',
+        "Cannot create short url(" + id + ") Exception: " + ex
+      );
     }
   } else {
-    console.log(
+    logger.log('warn',
       req.ip +
         " tried to use not valid url(presumably clientside code change(inspector) or /new/ link call)"
     );
@@ -82,14 +109,14 @@ app.get("/new/:url", function(req, res) {
 });
 
 app.get("/:id", function(req, res) {
-  console.log(req.ip + " tries to load site with key: " + req.params.id);
+  logger.log('info', req.ip + " tries to load site with key: " + req.params.id);
   let url = db.get(req.params.id);
   if (url) res.redirect(url);
   else res.status(404);
 });
 
 app.listen(port, () =>
-  console.log(`URL shortener app listening on port ${port}!`)
+  logger.log('info', `URL shortener app listening on port ${port}!`)
 );
 
 function generateRandomId() {

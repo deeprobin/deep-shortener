@@ -10,7 +10,7 @@ const logger = winston.createLogger({
     transports: [
       new (winston.transports.DailyRotateFile)({
         filename: path.join(__dirname, '../', 'data', 'logs', 'log-%DATE%.log'),
-        datePattern: 'YYYY-MM-DD-HH',
+        datePattern: 'YYYY-MM-DD',
         zippedArchive: true,
         maxSize: '20m',
         maxFiles: '14d'

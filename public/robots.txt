@@ -1,5 +1,4 @@
-#
-# DeepShortener
-#
-
+User-agent: *
+Allow: /
+Disallow: /new/
 Sitemap: http://shrt.deeprobin.de/sitemap.xml

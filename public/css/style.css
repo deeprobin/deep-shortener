@@ -94,25 +94,25 @@ input[type="url"] {
 
 @media only screen and (max-width: 768px) {
     #urlInput {
-        width: 100vw;
+        width: 100%;
         min-height: 48px;
         border-radius: 0;
-        margin: 5pt;
+        margin-top: 5pt;
         text-align: center;
     }
 
     #submit {
-        width: 100vw;
+        width: 100%;
         min-height: 48px;
         border-radius: 0;
-        margin: 5pt;
+        margin-top: 5pt;
     }
 
     #output {
-        width: 100vw;
+        width: 100%;
         min-height: 48px;
         border-radius: 0;
-        margin: 5pt;
+        margin-top: 5pt;
         text-align: center;
     }
 }

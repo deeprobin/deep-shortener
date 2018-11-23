@@ -38,7 +38,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
-if (process.env.TRUST_PROXY) app.enable("trust proxy");
+if (process.env.TRUST_PROXY == "true") app.enable("trust proxy");
 
 app.set("views", path.join(__dirname, "../views/"));
 app.set("view engine", "pug");

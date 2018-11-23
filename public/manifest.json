@@ -1,9 +1,9 @@
 {
   "name": "Deep Shortener",
-  "short_name": "Deep Shortener",
+  "short_name": "Short a url!",
   "theme_color": "#9980FA",
   "background_color": "#f1a500",
-  "display": "browser",
+  "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
   "start_url": "/",

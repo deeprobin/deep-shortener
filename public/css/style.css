@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    background: url(http://localhost:3000/img/background.svg);
+    background: url(/img/background.svg);
     overflow: hidden;
 }
 

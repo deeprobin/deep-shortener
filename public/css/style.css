@@ -7,19 +7,11 @@ html, body {
     overflow: hidden
 }
 
-body[theme="colorful"] {
-    animation-name: backgroundColor;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
+body {
+    background: url(http://localhost:3000/img/background.svg);
     overflow: hidden;
 }
 
-body[theme="dark"] {
-    animation-name: backgroundColorDark;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    overflow: hidden;
-}
 
 h1 {
     font-family: 'Spicy Rice', cursive;
@@ -126,101 +118,6 @@ input[type="url"] {
       }
 }
 
-@keyframes backgroundColorDark {
-    0% {
-        background-color: rgb(52, 73, 94);
-    }
-
-    10% {
-        background-color: rgb(44, 62, 80);
-    }
-
-    20% {
-        background-color: rgb(39, 60, 117);
-    }
-
-    30% {
-        background-color: rgb(25, 42, 86);
-    }
-
-    40% {
-        background-color: rgb(53, 59, 72);
-    }
-
-    50% {
-        background-color: rgb(47, 54, 64);
-    }
-
-    60% {
-        background-color: rgb(10, 61, 98);
-    }
-
-    70% {
-        background-color: rgb(30, 55, 153)
-    }
-
-    80% {
-        background-color: rgb(12, 36, 97);
-    }
-
-    90% {
-        background-color: rgb(15, 53, 155);
-    }
-
-    100% {
-        background-color: rgb(7, 153, 146);
-    }
-}
-
-
-@keyframes backgroundColor {
-    0% {
-        background-color: rgb(0, 255, 170);
-    }
-
-    10% {
-        background-color: rgb(87, 190, 47);
-    }
-
-    20% {
-        background-color: rgb(95, 7, 112);
-    }
-
-    30% {
-        background-color: crimson;
-    }
-
-    40% {
-        background-color: rgb(255, 200, 60);
-    }
-
-    50% {
-        background-color: deeppink;
-    }
-
-    60% {
-        background-color: forestgreen;
-    }
-
-    70% {
-        background-color: rgb(214, 73, 8)
-    }
-
-    80% {
-        background-color: darkcyan;
-    }
-
-    90% {
-        background-color: lightcoral;
-    }
-
-    100% {
-        background-color: chartreuse;
-    }
-}
-
-
-
 #snackbar {
     visibility: hidden;
     min-width: 250px;
@@ -267,7 +164,8 @@ input[type="url"] {
     background-color: #596275;
     color: white;
     width: 100%;
-    height: 48pt;
+    /* height: 48pt; */
+    padding: 8pt;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -276,9 +174,16 @@ input[type="url"] {
     font-size: 14pt;
 }
 
+.legal-urls a {
+    color: palevioletred;
+}
+
+.other-urls a {
+    color: mediumaquamarine;
+}
+
 #footer a {
     text-decoration: none;
-    color: palevioletred;
     margin-right: 7pt;
     margin-left: 7pt;
 }

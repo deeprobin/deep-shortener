@@ -18,7 +18,17 @@
     "express": "^4.16.4",
     "lowdb": "^1.0.0",
     "pug": "^2.0.3",
+    "spdy": "^4.0.0",
     "winston": "^3.1.0",
     "winston-daily-rotate-file": "^3.5.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeepRobin/deep-shortener.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DeepRobin/deep-shortener/issues"
+  },
+  "homepage": "https://github.com/DeepRobin/deep-shortener#readme"
 }

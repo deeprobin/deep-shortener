@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title 404 Page - We cannot find the page
+        link(rel='canonical', href='https://shrt.deeprobin.de/')
+        link(rel="stylesheet", href="/css/error.css")
+    body
+        .overlay
+        .terminal
+            h1
+                | Error 
+                span.errorcode 404
+            p.output
+                | The page you are looking for might have been removed, had its name changed or is temporarily unavailable
+            p.output
+                | But you can 
+                a(href='/') short a long url
+                |  or go away
+            p.output Good luck

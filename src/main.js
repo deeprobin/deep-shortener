@@ -1,30 +1,30 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const winston = require('winston');
-require('winston-daily-rotate-file');
+const winston = require("winston");
+require("winston-daily-rotate-file");
 
 const logger = winston.createLogger({
-    level: 'info',
-    format: winston.format.cli(),
-    transports: [
-      new (winston.transports.DailyRotateFile)({
-        filename: path.join(__dirname, '../', 'data', 'logs', 'log-%DATE%.log'),
-        datePattern: 'YYYY-MM-DD',
-        zippedArchive: true,
-        maxSize: '20m',
-        maxFiles: '14d'
-      })
-    ]
-  });
-  
-  if (process.env.NODE_ENV !== 'production') {
-    logger.add(new winston.transports.Console({
+  level: "info",
+  format: winston.format.cli(),
+  transports: [
+    new winston.transports.DailyRotateFile({
+      filename: path.join(__dirname, "../", "data", "logs", "log-%DATE%.log"),
+      datePattern: "YYYY-MM-DD",
+      zippedArchive: true,
+      maxSize: "20m",
+      maxFiles: "14d"
+    })
+  ]
+});
+
+if (process.env.NODE_ENV !== "production") {
+  logger.add(
+    new winston.transports.Console({
       format: winston.format.simple()
-    }));
-  }
-
-
+    })
+  );
+}
 
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
@@ -38,6 +38,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
+if (process.env.TRUST_PROXY) app.enable("trust proxy");
+
 app.set("views", path.join(__dirname, "../views/"));
 app.set("view engine", "pug");
 app.get("/", function(req, res) {
@@ -45,12 +47,6 @@ app.get("/", function(req, res) {
 });
 
 app.use("/", express.static(path.join(__dirname, "../public")));
-
-// chrome automatic undefined call cancle - for clear clientside console
-app.all("/undefined", function(req, res) {
-  res.writeHead(200);
-  res.send();
-});
 
 app.get("/legal", function(req, res) {
   res.render("legal/legal-disclosure");
@@ -92,15 +88,20 @@ app.get("/new/:url", function(req, res) {
 
       db.set(id, url).write();
       res.send(id);
-      logger.log('info', req.ip + " created short url(" + id + ") with url " + url);
+      logger.log(
+        "info",
+        req.ip + " created short url(" + id + ") with url " + url
+      );
     } catch (ex) {
       res.send("!!!error!!!");
-      logger.log('error',
+      logger.log(
+        "error",
         "Cannot create short url(" + id + ") Exception: " + ex
       );
     }
   } else {
-    logger.log('warn',
+    logger.log(
+      "warn",
       req.ip +
         " tried to use not valid url(presumably clientside code change(inspector) or /new/ link call)"
     );
@@ -109,14 +110,32 @@ app.get("/new/:url", function(req, res) {
 });
 
 app.get("/:id", function(req, res) {
-  logger.log('info', req.ip + " tries to load site with key: " + req.params.id);
   let url = db.get(req.params.id);
-  if (url) res.redirect(url);
-  else res.status(404);
+  logger.log(
+    "info",
+    req.ip + " tries to load site with key: " + req.params.id + " (" + url + ")"
+  );
+  if (!url.isEmpty()) res.redirect(url);
+  else {
+    logger.log("info", req.ip + " tries to load 404 page.");
+    res.status(404);
+
+    if (req.accepts("html")) {
+      res.render("404", { url: req.url });
+      return;
+    }
+
+    if (req.accepts("json")) {
+      res.send({ error: "Not found" });
+      return;
+    }
+
+    res.type("txt").send("Not found");
+  }
 });
 
 app.listen(port, () =>
-  logger.log('info', `URL shortener app listening on port ${port}!`)
+  logger.log("info", `URL shortener app listening on port ${port}!`)
 );
 
 function generateRandomId() {

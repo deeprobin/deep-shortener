@@ -175,11 +175,11 @@ input[type="url"] {
 }
 
 .legal-urls a {
-    color: palevioletred;
+    color: #EED7E0;
 }
 
 .other-urls a {
-    color: mediumaquamarine;
+    color: #63F6BB;
 }
 
 #footer a {

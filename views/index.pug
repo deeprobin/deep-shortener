@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-html(lang="de")
+html(lang="en")
     head
         title Deep URL-Shortener - Free Short URLs
         link(rel='canonical', href='https://shrt.deeprobin.de/')
@@ -11,6 +11,7 @@ html(lang="de")
         script(src='/js/script.js', type='text/javascript' async)
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         meta(charset='UTF-8')
+        meta(name='robots', content='nofollow')
         meta(name='title', content='Deep URL-Shortener - Free Short URLs')
         meta(name='description', content='DeepShortener is a Open-Source url-shortener. It was made by DeepRobin and his contributors..')
         meta(name='keywords', content='DeepShortener, url shortener, url-shortener, short url, short link, long url, my url is too long, free')
@@ -22,12 +23,16 @@ html(lang="de")
         meta(name='msapplication-TileImage', content='images/icons/icon-144x144.png')
         meta(name='msapplication-TileColor', content='#9980FA')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(property="og:title", content="DeepShortener")
+        meta(property="og:type", content="website")
+        meta(property="og:url", content="https://shrt.deeprobin.de")
+        meta(property="og:image", content="/img/background.svg")
     body
       h1 Robins URL Shortener
       div.container
         form
           input#urlInput.fail(type="url", placeholder="Which url you want to short?")
-          input#submit(type="button", value="Submit", disabled)
+          input#submit(type="button", value="Short!", disabled)
           input#output.not-editable(type="url", readonly)
       #snackbar
         | Copied!

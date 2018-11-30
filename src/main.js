@@ -32,7 +32,7 @@ const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("data/db.json");
 const db = low(adapter);
 
-db.defaults({ urls: {} }).write();
+db.defaults({}).write();
 
 const express = require("express");
 const app = express();

@@ -39,7 +39,7 @@ ready(function() {
       generateShortenLink(text, function(url) {
         if (url != "error") {
           document.getElementById("output").value =
-            "https://shrt.deeprobin.de/" + url;
+            "https://" + window.location.hostname.replace("www.", "") + "/" + url;
         } else {
           console.error("Shortener Error");
         }

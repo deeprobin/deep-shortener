@@ -42,6 +42,7 @@ if (process.env.TRUST_PROXY == "true") app.enable("trust proxy");
 
 app.set("views", path.join(__dirname, "../views/"));
 app.set("view engine", "pug");
+app.disable('x-powered-by');
 app.get("/", function(req, res) {
   res.render("index");
 });

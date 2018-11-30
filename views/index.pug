@@ -2,7 +2,7 @@
 html(lang="en")
     head
         title Deep URL-Shortener - Free Short URLs
-        link(rel='canonical', href='https://shrt.deeprobin.de/')
+        link(rel='canonical', href='https://sh-rt.ovh/')
         link(rel="stylesheet", href="/css/style.css")
         link(rel='stylesheet', type='text/css', href='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css')
         link(rel='apple-touch-icon', href='images/icons/icon-152x152.png')
@@ -12,8 +12,8 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         meta(charset='UTF-8')
         meta(name='robots', content='nofollow')
-        meta(name='title', content='Deep URL-Shortener - Free Short URLs')
-        meta(name='description', content='DeepShortener is a Open-Source url-shortener. It was made by DeepRobin and his contributors..')
+        meta(name='title', content='Deep URL-Shortener - Make long urls shorter than before')
+        meta(name='description', content='DeepShortener is a Open-Source url-shortener. DeepShortener is very useful to short very long urls. It was made by DeepRobin and his contributors.')
         meta(name='keywords', content='DeepShortener, url shortener, url-shortener, short url, short link, long url, my url is too long, free')
         meta(name='author', content='DeepRobin (Robin Lindner)')
         meta(name='theme-color', content='#9980FA')
@@ -24,11 +24,15 @@ html(lang="en")
         meta(name='msapplication-TileColor', content='#9980FA')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         meta(property="og:title", content="DeepShortener")
+        meta(property="og:description", content="DeepShortener is a Open-Source url-shortener. It was made by DeepRobin and his contributors.")
         meta(property="og:type", content="website")
-        meta(property="og:url", content="https://shrt.deeprobin.de")
+        meta(property="og:url", content="https://sh-rt.ovh")
         meta(property="og:image", content="/img/background.svg")
     body
-      h1 Robins URL Shortener
+      #top
+        h1 Robins URL Shortener - SHRT.OVH
+        .only-desktop.text
+          | If your URL is too long, you can make it shorter here. DeepShortener is Open Source and very resource-friendly.
       div.container
         form
           input#urlInput.fail(type="url", placeholder="Which url you want to short?")

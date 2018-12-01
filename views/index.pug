@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang=__('language.id'))
     head
         title Deep URL-Shortener - Make long urls shorter than before
         link(rel='canonical', href='https://sh-rt.ovh/')
@@ -21,7 +21,7 @@ html(lang="en")
         meta(charset='UTF-8')
         meta(name='robots', content='nofollow')
         meta(name='title', content='Deep URL-Shortener - Make long urls shorter than before')
-        meta(name='description', content='DeepShortener is a Open-Source url-shortener. DeepShortener is very useful to short very long urls. It was made by DeepRobin and his contributors.')
+        meta(name='description', content=__('meta.description'))
         meta(name='keywords', content='DeepShortener, url shortener, url-shortener, short url, short link, long url, my url is too long, free')
         meta(name='author', content='DeepRobin (Robin Lindner)')
         meta(name='theme-color', content='#9980FA')
@@ -31,27 +31,24 @@ html(lang="en")
         meta(name='msapplication-TileImage', content='images/icons/icon-144x144.png')
         meta(name='msapplication-TileColor', content='#9980FA')
         meta(name='twitter:title', content='DeepRobins URL-Shortener')
-        meta(name="twitter:card", content="DeepShortener is a Open-Source url-shortener. It was made by DeepRobin and his contributors.")
+        meta(name="twitter:card", content=__('meta.description'))
         meta(name='twitter:creator', content='@deeprobin_')
         meta(name="twitter:image", content="/img/background.svg")
         meta(name="fb:app_id", content="533861763746351")
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         meta(property="og:title", content="DeepShortener")
-        meta(property="og:description", content="DeepShortener is a Open-Source url-shortener. It was made by DeepRobin and his contributors.")
+        meta(property="og:description", content=__('meta.description'))
         meta(property="og:type", content="website")
         meta(property="og:url", content="https://sh-rt.ovh")
         meta(property="og:image", content="/img/background.svg")
     body
       #top
         h1 Robins URL Shortener - SHRT.OVH
-        .only-desktop.text
-          // Yes this is ugly
-          | If your URL is too long, you can make it shorter here. DeepShortener is Open Source and very resource-friendly.
+        .only-desktop.text=__('text.description')
       div.container
         form
-          input#urlInput.fail(type="url", placeholder="Which url you want to short?")
-          input#submit(type="button", value="Short!", disabled)
+          input#urlInput.fail(type="url", placeholder=__('input.url.placeholder'))
+          input#submit(type="button", value=__('button.submit.text'), disabled)
           input#output.not-editable(type="url", readonly)
-      #snackbar
-        | Copied!
+      #snackbar=__("snackbar.copied")
       include footer.pug

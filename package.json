@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
+    "i18n": "^0.8.3",
     "lowdb": "^1.0.0",
     "pug": "^2.0.3",
     "spdy": "^4.0.0",

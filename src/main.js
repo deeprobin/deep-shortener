@@ -35,11 +35,20 @@ const db = low(adapter);
 db.defaults({}).write();
 
 const express = require("express");
+const i18n = require("i18n");
 const app = express();
 const port = process.env.PORT || 3000;
 
+
+i18n.configure({
+  locales: ['en', 'de'],
+  directory: path.join(__dirname, '../', 'public', 'i18n'),
+  defaultLocale: 'en'
+});
+
 if (process.env.TRUST_PROXY == "true") app.enable("trust proxy");
 
+app.use(i18n.init);
 app.set("views", path.join(__dirname, "../views/"));
 app.set("view engine", "pug");
 app.disable('x-powered-by');
@@ -50,15 +59,36 @@ app.get("/", function(req, res) {
 app.use("/", express.static(path.join(__dirname, "../public")));
 
 app.get("/legal", function(req, res) {
-  res.render("legal/legal-disclosure");
+  if(req.acceptsLanguages("de")) {
+    res.render("legal/de/legal-disclosure");
+  } else
+  res.render("legal/en/legal-disclosure");
 });
 
 app.get("/terms", function(req, res) {
-  res.render("legal/terms");
+  if(req.acceptsLanguages("de")) {
+    res.render("legal/de/terms");
+  } else
+  res.render("legal/en/terms");
 });
 
 app.get("/privacy-policy", function(req, res) {
-  res.render("legal/privacy-policy");
+  if(req.acceptsLanguages("de")) {
+    res.render("legal/de/privacy-policy");
+  } else
+  res.render("legal/en/privacy-policy");
+});
+
+app.get("/legal-en", function(req, res) {
+  res.render("legal/en/legal-disclosure");
+});
+
+app.get("/terms-en", function(req, res) {
+  res.render("legal/en/terms");
+});
+
+app.get("/privacy-policy-en", function(req, res) {
+  res.render("legal/en/privacy-policy");
 });
 
 app.all("/favicon.ico", function(req, res) {

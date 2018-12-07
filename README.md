@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/DeepRobin/deep-shortener/master/public/img/favicon.ico)
+![Logo](https://raw.githubusercontent.com/DeepRobin/deep-shortener/master/public/img/favicon.ico "Logo")
 # DeepShortener - SH-RT.OVH
 
 DeepShortener is a url-shortener written in nodejs using express, pug and i18n. It's available under 

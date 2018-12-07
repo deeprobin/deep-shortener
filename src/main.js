@@ -52,7 +52,15 @@ app.use(i18n.init);
 app.set("views", path.join(__dirname, "../views/"));
 app.set("view engine", "pug");
 app.disable('x-powered-by');
+
 app.get("/", function(req, res) {
+  res.setHeader("Content-Security-Policy","default-src 'self' cdnjs.cloudflare.com fonts.googleapis.com; style-src 'unsafe-inline' 'self' cdnjs.cloudflare.com fonts.googleapis.com; frame-src 'none'; object-src 'none'; font-src fonts.googleapis.com fonts.gstatic.com")
+  res.setHeader("Strict-Transport-Security","max-age=63072000")
+  res.setHeader("X-Content-Type-Options","nosniff")
+  res.setHeader("X-Frame-Options","DENY")
+  res.setHeader("X-XSS-Protection","1; mode=block")
+  res.setHeader("Referrer-Policy", "strict-origin")
+  res.setHeader("Feature-Policy","geolocation 'none'; microphone 'none'; ")
   res.render("index");
 });
 

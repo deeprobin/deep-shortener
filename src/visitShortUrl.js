@@ -2,8 +2,9 @@
  * @param {Express} app The express app
  * @param {winston.Logger} logger The Logger
  * @param {lowdb.FileSync} db LowDB
+ * @param {string} urlExpression The regex expression for urls
  */
-module.exports = function(app, logger, db) {
+module.exports = function(app, logger, db, urlExpression) {
     app.get("/:id", function(req, res) {
         let url = db.get(req.params.id);
       

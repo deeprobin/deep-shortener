@@ -1,11 +1,10 @@
-const urlExpression = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
-
 /** 
  * @param {Express} app The express app
  * @param {winston.Logger} logger The Logger
  * @param {lowdb.FileSync} db LowDB
+ * @param {string} urlExpression The regex expression for urls
  */
-module.exports = function(app, logger, db) {
+module.exports = function(app, logger, db, urlExpression) {
     app.get("/new/:url", function(req, res) {
         var url = Buffer.from(req.params.url, "base64").toString("utf-8");
       

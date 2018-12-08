@@ -1,3 +1,5 @@
+const urlExpression = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+
 const path = require("path");
 
 const low = require("lowdb");
@@ -73,10 +75,10 @@ app.all("/favicon.ico", function(req, res) {
 
 
 const createShortUrl = require('./createShortUrl.js')
-createShortUrl(app, logger, db)
+createShortUrl(app, logger, db, urlExpression)
 
 const visitShortUrl = require('./visitShortUrl.js')
-visitShortUrl(app, logger, db)
+visitShortUrl(app, logger, db, urlExpression)
 
 app.listen(port, () =>
   logger.log("info", `URL shortener app listening on port ${port}!`)

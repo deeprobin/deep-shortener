@@ -30,10 +30,11 @@ const logger = winston.createLogger({
   ]
 });
 
-
+const database_file = process.env.DB_PATH || path.join(__dirname, '../', 'data', 'db.json')
+const port = process.env.PORT || 3000;
 const FileSync = require("lowdb/adapters/FileSync");
 
-const adapter = new FileSync("data/db.json");
+const adapter = new FileSync(database_file);
 const db = low(adapter);
 
 db.defaults({}).write();
@@ -41,7 +42,6 @@ db.defaults({}).write();
 const express = require("express");
 const i18n = require("i18n");
 const app = express();
-const port = process.env.PORT || 3000;
 
 i18n.configure({
   locales: ["en", "de"],

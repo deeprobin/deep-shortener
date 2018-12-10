@@ -33,6 +33,13 @@ function ready(fn) {
 }
 
 ready(function() {
+
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('/js/sw.js')
+             .then(function() { console.log("Service Worker Registered"); });
+  }
+
   document.getElementById("submit").onclick = function() {
     setTimeout(function() {
       var text = document.getElementById("urlInput").value;

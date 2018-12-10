@@ -24,13 +24,24 @@ body {
     position: static;
 }
 
-h1 {
+#title {
     font-family: 'Spicy Rice', cursive;
     color: white;
     text-shadow: 0 0 3pt black;
-    font-size: 400%; /*36pt*/
+    font-size: 46pt;
     text-align: center;
     z-index: 10;
+    width: 100vw;
+}
+
+.text {
+    margin-top: 12pt;
+    text-align: center;
+    width: 100vw;
+}
+
+.no-wrap {
+    white-space: nowrap;
 }
 
 .container {
@@ -97,6 +108,11 @@ input[type="url"] {
 
 
   @media only screen and (max-width: 768px) {
+
+    #title {
+        font-size: 28pt;
+    }
+
     #urlInput {
         width: 100vw;
         border-radius: 0;

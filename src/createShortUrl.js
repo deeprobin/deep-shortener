@@ -7,7 +7,13 @@
 module.exports = function(app, logger, db, urlExpression) {
     app.get("/new/:url", function(req, res) {
         var url = Buffer.from(req.params.url, "base64").toString("utf-8");
-      
+        
+        // Check if url has a protocol like http, https or ftp
+        if (new URI(url).scheme === null)
+        {
+            url = 'http://' + url;
+        }
+
         if (new RegExp(urlExpression).test(url + "/")) {
           try {
             var id = "id";

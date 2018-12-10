@@ -15,10 +15,11 @@ body {
 
 #top {
     position: absolute;
+    margin-top: 20pt;
 }
 
 .text {
-    color: #333;
+    color: rgb(100, 100, 100);
     font-weight: 500;
     font-family: 'Karla', sans-serif;
     font-size: 14pt;
@@ -53,6 +54,7 @@ body {
 #urlInput {
     border-top-left-radius: 5pt;
     border-bottom-left-radius: 5pt;
+    padding-left: 4pt;
 }
 
 #output {
@@ -66,6 +68,7 @@ input[type="url"] {
     outline: none;
     border-style: solid;
     transition: all 500ms;
+    border-color: rgba(245,245,245)
 }
 
 #urlInput {

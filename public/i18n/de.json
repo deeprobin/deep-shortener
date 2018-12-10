@@ -2,7 +2,7 @@
 	"language.id": "de",
 	"language.name": "Deutsch",
 	"button.submit.text": "Kürzen!",
-	"input.url.placeholder": "Gib eine lange URL ein!",
+	"input.url.placeholder": "Deine URL",
 	"text.description": "Lange Webadressen sind Geschichte! Mit SH-RT.OVH kannst du lange URLs einfach verkürzen und sie funktionieren trotzdem. Zudem ist dieses Projekt quelloffen und sehr ressourcensparend.",
 	"meta.description": "DeepShortener ist ein Open-Source URL-Shortener. DeepShortener ist sehr nützlich, um sehr lange URLs zu verkürzen. Es wurde von DeepRobin und den Mitwirkenden des Projekts erstellt.",
 	"snackbar.copied": "Kopiert!",

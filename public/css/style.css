@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Spicy+Rice');
+@import url('https://fonts.googleapis.com/css?family=Rubik:700,900');
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
 
 html, body {
     margin: 0; 
@@ -19,24 +20,21 @@ body {
 .text {
     color: #333;
     font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Karla', sans-serif;
     font-size: 14pt;
     position: static;
-}
-
-#title {
-    font-family: 'Spicy Rice', cursive;
-    color: white;
-    text-shadow: 0 0 3pt black;
-    font-size: 46pt;
+    margin-top: 12pt;
     text-align: center;
-    z-index: 10;
     width: 100vw;
 }
 
-.text {
-    margin-top: 12pt;
+#title {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 900;
+    color: white;
+    font-size: 46pt;
     text-align: center;
+    z-index: 10;
     width: 100vw;
 }
 

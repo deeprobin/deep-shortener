@@ -1,13 +1,13 @@
 {
     "language.id": "en",
     "language.name": "English",
-    "button.submit.text": "Shrt!",
-    "input.url.placeholder": "Which url you want to short?",
+    "button.submit.text": "Short!",
+    "input.url.placeholder": "Your URL",
     "text.description": "If your URL is too long, you can make it shorter here. DeepShortener is Open Source and very resource-friendly.",
     "meta.description": "DeepShortener is a Open-Source url-shortener. DeepShortener is very useful to short very long urls. It was made by DeepRobin and the contributors of this project.",
     "snackbar.copied": "Copied!",
     "footer.privacy-policy": "Privacy Policy",
     "footer.terms": "Terms of Service (ToS)",
     "footer.legal": "Legal details",
-    "footer.copyright": "&copy; Copyright DeepRobin 2018 - All rights reserved."
+    "footer.copyright": "\u00A9 Copyright DeepRobin 2018 - All rights reserved."
 }

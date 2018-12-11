@@ -49,7 +49,10 @@ i18n.configure({
   defaultLocale: "en"
 });
 
-if (process.env.TRUST_PROXY == "true") app.enable("trust proxy");
+if (process.env.TRUST_PROXY.toLowerCase() == "true") {
+  app.enable("trust proxy");
+  logger.log("info", "Environment variable TRUST_PROXY is enabled. (The reverse proxy says the ip)")
+}
 
 app.use(i18n.init);
 app.set("views", path.join(__dirname, "../views/"));

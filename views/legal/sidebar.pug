@@ -1,0 +1,11 @@
+-var menu = { 'home': '/', 'terms': '/terms', 'legal': '/legal', 'privacy-policy': '/privacy-policy' };
+
+block link
+    -var selected = 'home';
+
+.sidebar
+    each val, key in menu
+        if selected === key
+            a.active(href=val, title=key)= __('infopages.page.' + key + '.title')
+        else
+            a(href=val, title=key)= __('infopages.page.' + key + '.title')

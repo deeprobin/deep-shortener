@@ -15,6 +15,7 @@
   "author": "DeepRobin",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "i18n": "^0.8.3",
     "lowdb": "^1.0.0",

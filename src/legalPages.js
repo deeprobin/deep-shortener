@@ -23,7 +23,7 @@ module.exports = function(app, logger){
         } else res.render("legal/en/privacy-policy");
       });
       
-      app.get("/legal-en", function(req, res) {
+      app.get("/legal-disclosure-en", function(req, res) {
         res.render("legal/en/legal-disclosure");
       });
       

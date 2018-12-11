@@ -6,58 +6,60 @@ html
         link(rel="stylesheet", href="/css/legal.css")
         title Nutzungsbedingungen
     body
-        h1 Nutzungsbedingungen
-        hr
-        h3 1. Begriffe
-        p
-            | Mit dem Zugriff auf die Website unter&nbsp;
-            a(href='https://sh-rt.ovh') https://sh-rt.ovh
-            | ,&nbsp;
-            a(href='https://shrt.deeprobin.de') https://shrt.deeprobin.de
-            | &nbsp;oder&nbsp;
-            a(href='https://shortener.deeprobin.de') https://shortener.deeprobin.de
-            | erklären Sie sich damit einverstanden, an diese Nutzungsbedingungen, alle anwendbaren Gesetze und Vorschriften gebunden zu sein, und erklären sich damit einverstanden, dass Sie für die Einhaltung der geltenden lokalen Gesetze verantwortlich sind. Wenn Sie mit einer dieser Bedingungen nicht einverstanden sind, ist es Ihnen untersagt, diese Website zu nutzen oder darauf zuzugreifen. Die auf dieser Website enthaltenen Materialien sind durch geltendes Urheber- und Markenrecht geschützt.
-        h3 2. Nutzungslizenz
-        ol(type='a')
-            li
-                | Es ist gestattet, eine Kopie der Materialien (Informationen oder Software) auf der Robin Lindner-Website vorübergehend nur für den persönlichen, nicht gewerblichen Gebrauch herunterzuladen. Dies ist die Gewährung einer Lizenz, nicht eine Übertragung des Eigentums, und unter dieser Lizenz dürfen Sie das nicht:
-                ol(type='i')
-                    li die Materialien zu modifizieren oder zu kopieren;
-                    li
-                        | die Materialien für kommerzielle Zwecke oder für die öffentliche Darstellung (kommerziell oder nicht kommerziell) zu verwenden;
-                    li
-                        | zu versuchen, die auf der Website von Robin Lindner enthaltene Software zu dekompilieren oder zurückzuentwickeln;
-                    li Entfernen von Urheberrechten oder anderen geschützten Bezeichnungen aus den Materialien; or
-                    li
-                        | oder die Materialien auf eine andere Person übertragen oder die Materialien auf einem anderen Server "spiegeln".
-            li
-                | Diese Lizenz erlischt automatisch, wenn Sie gegen eine dieser Einschränkungen verstoßen, und kann von Robin Lindner jederzeit gekündigt werden. Nach Beendigung Ihrer Betrachtung dieser Materialien oder nach Beendigung dieser Lizenz müssen Sie alle heruntergeladenen Materialien, die sich in Ihrem Besitz befinden, entweder in elektronischer oder gedruckter Form vernichten.
-        h3 3. Haftungsausschluss
-        ol(type='a')
-            li
-                | Die Materialien auf der Website von Robin Lindner werden auf der Grundlage des Ist-Zustandes bereitgestellt. Robin Lindner gibt keine ausdrücklichen oder stillschweigenden Garantien ab und lehnt hiermit alle anderen Garantien ab, einschließlich, aber nicht beschränkt auf stillschweigende Garantien oder Bedingungen der Marktgängigkeit, der Eignung für einen bestimmten Zweck oder der Nichtverletzung geistigen Eigentums oder anderer Rechtsverletzungen.
-            li
-                | Robin Lindner garantiert oder gibt keine Zusicherungen bezüglich der Genauigkeit, der wahrscheinlichen Ergebnisse oder der Zuverlässigkeit der Nutzung der Materialien auf seiner Website oder in anderer Weise in Bezug auf diese Materialien oder auf Websites, die mit dieser Website verlinkt sind.
-        h3 4. Einschränkungen
-        p
-            | Robin Lindner oder seine Lieferanten haften in keinem Fall für Schäden (insbesondere nicht für Schäden aus Daten- oder Gewinnverlusten oder aufgrund von Betriebsunterbrechungen), die sich aus der Nutzung oder Unmöglichkeit der Nutzung der Materialien auf der Website von Robin Lindner ergeben, selbst wenn Robin Lindner oder ein Bevollmächtigter von Robin Lindner mündlich oder schriftlich über die Möglichkeit eines solchen Schadens informiert wurde. Da einige Gerichtsbarkeiten keine Einschränkungen der stillschweigenden Garantien oder der Haftung für Folge- oder Nebenschäden zulassen, gelten diese Einschränkungen möglicherweise nicht für Sie.
-        h3 5. Genauigkeit der Materialien
-        p
-            | Die auf der Website von Robin Lindner veröffentlichten Materialien können technische, typografische oder fotografische Fehler enthalten. Robin Lindner übernimmt keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte auf seiner Website. Robin Lindner kann jederzeit und ohne Vorankündigung Änderungen an den auf seiner Website enthaltenen Materialien vornehmen. Robin Lindner übernimmt jedoch keine Verpflichtung zur Aktualisierung der Materialien.
-        h3 6. Links
-        p
-            | Robin Lindner hat nicht alle mit seiner Website verlinkten Seiten überprüft und ist nicht verantwortlich für den Inhalt dieser verlinkten Seiten. Die Aufnahme eines Links bedeutet nicht, dass Robin Lindner die Website billigt. Die Nutzung einer solchen verlinkten Website erfolgt auf eigene Gefahr des Nutzers.
-        h3 7. Änderungen
-        p
-            | Robin Lindner kann diese Nutzungsbedingungen für seine Website jederzeit und ohne Vorankündigung ändern. Mit der Nutzung dieser Website erklären Sie sich damit einverstanden, an die jeweils aktuelle Version dieser Nutzungsbedingungen gebunden zu sein.
-        h3 8. Anwendbares Recht
-        p
-            | Diese Bedingungen unterliegen dem deutschen Recht und werden in Übereinstimmung mit diesem ausgelegt, und Sie unterwerfen sich unwiderruflich der ausschließlichen Zuständigkeit der Gerichte dieses Staates oder Standortes.
-        br
-        hr
-        p
-            | Die Nutzungsbedingungen wurden mit&nbsp;
-            a(href="https://www.deepl.com/translator") https://www.DeepL.com/Translator 
-            | &nbsp;übersetzt. Das Original befindet sich&nbsp;
-            a(href="/terms-en/") hier
-            | .
+        include ../terms-sidebar.pug
+        .content
+            h1 Nutzungsbedingungen
+            hr
+            h3 1. Begriffe
+            p
+                | Mit dem Zugriff auf die Website unter&nbsp;
+                a(href='https://sh-rt.ovh') https://sh-rt.ovh
+                | ,&nbsp;
+                a(href='https://shrt.deeprobin.de') https://shrt.deeprobin.de
+                | &nbsp;oder&nbsp;
+                a(href='https://shortener.deeprobin.de') https://shortener.deeprobin.de
+                | erklären Sie sich damit einverstanden, an diese Nutzungsbedingungen, alle anwendbaren Gesetze und Vorschriften gebunden zu sein, und erklären sich damit einverstanden, dass Sie für die Einhaltung der geltenden lokalen Gesetze verantwortlich sind. Wenn Sie mit einer dieser Bedingungen nicht einverstanden sind, ist es Ihnen untersagt, diese Website zu nutzen oder darauf zuzugreifen. Die auf dieser Website enthaltenen Materialien sind durch geltendes Urheber- und Markenrecht geschützt.
+            h3 2. Nutzungslizenz
+            ol(type='a')
+                li
+                    | Es ist gestattet, eine Kopie der Materialien (Informationen oder Software) auf der Robin Lindner-Website vorübergehend nur für den persönlichen, nicht gewerblichen Gebrauch herunterzuladen. Dies ist die Gewährung einer Lizenz, nicht eine Übertragung des Eigentums, und unter dieser Lizenz dürfen Sie das nicht:
+                    ol(type='i')
+                        li die Materialien zu modifizieren oder zu kopieren;
+                        li
+                            | die Materialien für kommerzielle Zwecke oder für die öffentliche Darstellung (kommerziell oder nicht kommerziell) zu verwenden;
+                        li
+                            | zu versuchen, die auf der Website von Robin Lindner enthaltene Software zu dekompilieren oder zurückzuentwickeln;
+                        li Entfernen von Urheberrechten oder anderen geschützten Bezeichnungen aus den Materialien; or
+                        li
+                            | oder die Materialien auf eine andere Person übertragen oder die Materialien auf einem anderen Server "spiegeln".
+                li
+                    | Diese Lizenz erlischt automatisch, wenn Sie gegen eine dieser Einschränkungen verstoßen, und kann von Robin Lindner jederzeit gekündigt werden. Nach Beendigung Ihrer Betrachtung dieser Materialien oder nach Beendigung dieser Lizenz müssen Sie alle heruntergeladenen Materialien, die sich in Ihrem Besitz befinden, entweder in elektronischer oder gedruckter Form vernichten.
+            h3 3. Haftungsausschluss
+            ol(type='a')
+                li
+                    | Die Materialien auf der Website von Robin Lindner werden auf der Grundlage des Ist-Zustandes bereitgestellt. Robin Lindner gibt keine ausdrücklichen oder stillschweigenden Garantien ab und lehnt hiermit alle anderen Garantien ab, einschließlich, aber nicht beschränkt auf stillschweigende Garantien oder Bedingungen der Marktgängigkeit, der Eignung für einen bestimmten Zweck oder der Nichtverletzung geistigen Eigentums oder anderer Rechtsverletzungen.
+                li
+                    | Robin Lindner garantiert oder gibt keine Zusicherungen bezüglich der Genauigkeit, der wahrscheinlichen Ergebnisse oder der Zuverlässigkeit der Nutzung der Materialien auf seiner Website oder in anderer Weise in Bezug auf diese Materialien oder auf Websites, die mit dieser Website verlinkt sind.
+            h3 4. Einschränkungen
+            p
+                | Robin Lindner oder seine Lieferanten haften in keinem Fall für Schäden (insbesondere nicht für Schäden aus Daten- oder Gewinnverlusten oder aufgrund von Betriebsunterbrechungen), die sich aus der Nutzung oder Unmöglichkeit der Nutzung der Materialien auf der Website von Robin Lindner ergeben, selbst wenn Robin Lindner oder ein Bevollmächtigter von Robin Lindner mündlich oder schriftlich über die Möglichkeit eines solchen Schadens informiert wurde. Da einige Gerichtsbarkeiten keine Einschränkungen der stillschweigenden Garantien oder der Haftung für Folge- oder Nebenschäden zulassen, gelten diese Einschränkungen möglicherweise nicht für Sie.
+            h3 5. Genauigkeit der Materialien
+            p
+                | Die auf der Website von Robin Lindner veröffentlichten Materialien können technische, typografische oder fotografische Fehler enthalten. Robin Lindner übernimmt keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte auf seiner Website. Robin Lindner kann jederzeit und ohne Vorankündigung Änderungen an den auf seiner Website enthaltenen Materialien vornehmen. Robin Lindner übernimmt jedoch keine Verpflichtung zur Aktualisierung der Materialien.
+            h3 6. Links
+            p
+                | Robin Lindner hat nicht alle mit seiner Website verlinkten Seiten überprüft und ist nicht verantwortlich für den Inhalt dieser verlinkten Seiten. Die Aufnahme eines Links bedeutet nicht, dass Robin Lindner die Website billigt. Die Nutzung einer solchen verlinkten Website erfolgt auf eigene Gefahr des Nutzers.
+            h3 7. Änderungen
+            p
+                | Robin Lindner kann diese Nutzungsbedingungen für seine Website jederzeit und ohne Vorankündigung ändern. Mit der Nutzung dieser Website erklären Sie sich damit einverstanden, an die jeweils aktuelle Version dieser Nutzungsbedingungen gebunden zu sein.
+            h3 8. Anwendbares Recht
+            p
+                | Diese Bedingungen unterliegen dem deutschen Recht und werden in Übereinstimmung mit diesem ausgelegt, und Sie unterwerfen sich unwiderruflich der ausschließlichen Zuständigkeit der Gerichte dieses Staates oder Standortes.
+            br
+            hr
+            p
+                | Die Nutzungsbedingungen wurden mit&nbsp;
+                a(href="https://www.deepl.com/translator") https://www.DeepL.com/Translator 
+                | &nbsp;übersetzt. Das Original befindet sich&nbsp;
+                a(href="/terms-en/") hier
+                | .

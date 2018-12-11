@@ -9,5 +9,9 @@
 	"footer.privacy-policy": "Datenschutzerklärung",
 	"footer.terms": "Nutzungsbedingungen",
 	"footer.legal": "Impressum",
-    "footer.copyright": "\u00A9 Copyright DeepRobin 2018 - All rights reserved."
+	"footer.copyright": "\u00A9 Copyright DeepRobin 2018 - All rights reserved.",
+	"infopages.page.privacy-policy.title": "Datenschutzerklärung",
+	"infopages.page.terms.title": "Nutzungsbedingungen",
+	"infopages.page.legal.title": "Impressum",
+	"infopages.page.home.title": "Zurück zur Startseite"
 }

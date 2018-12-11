@@ -4,6 +4,7 @@ const path = require("path");
 
 const low = require("lowdb");
 const winston = require("winston");
+const bodyParser = require('body-parser')
 require("winston-daily-rotate-file");
 
 const logger = winston.createLogger({
@@ -49,7 +50,7 @@ i18n.configure({
   defaultLocale: "en"
 });
 
-if (process.env.TRUST_PROXY.toLowerCase() == "true") {
+if (process.env.TRUST_PROXY && process.env.TRUST_PROXY.toLowerCase() == "true") {
   app.enable("trust proxy");
   logger.log("info", "Environment variable TRUST_PROXY is enabled. (The reverse proxy says the ip)")
 }

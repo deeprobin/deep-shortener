@@ -1,4 +1,4 @@
--var menu = { 'home': '/', 'terms': '/terms', 'legal': '/legal', 'privacy-policy': '/privacy-policy' };
+-var menu = { 'home': '/', 'terms': '/terms', 'legal-disclosure': '/legal', 'privacy-policy': '/privacy-policy' };
 
 block link
     -var selected = 'home';
@@ -6,6 +6,12 @@ block link
 .sidebar
     each val, key in menu
         if selected === key
-            a.active(href=val, title=key)= __('infopages.page.' + key + '.title')
+            a.active(href=val, data-key=key, title=__('infopages.page.' + key + '.title'))
+                img.inline-img(src='/img/legal/' + key + '.svg')
+                | &nbsp;
+                span= __('infopages.page.' + key + '.title')
         else
-            a(href=val, title=key)= __('infopages.page.' + key + '.title')
+            a(href=val, data-key=key, title=__('infopages.page.' + key + '.title'))
+                img.inline-img(src='/img/legal/' + key + '.svg')
+                | &nbsp;
+                span= __('infopages.page.' + key + '.title')

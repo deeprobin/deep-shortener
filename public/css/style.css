@@ -13,9 +13,8 @@ body {
     overflow: hidden;
 }
 
-#top {
-    position: absolute;
-    margin-top: 20pt;
+form {
+    margin-bottom: 52pt;
 }
 
 .text {
@@ -45,6 +44,7 @@ body {
 
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -106,14 +106,6 @@ input[type="url"] {
     background-color: orangered;
 }
 
-
-@media only screen and (max-height: 500){
-    #top {
-        display: none;
-    }
-}
-
-
   @media only screen and (max-width: 768px) {
 
     #title {
@@ -156,7 +148,6 @@ input[type="url"] {
 }
 
 #snackbar {
-    visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
     background-color: #333;
@@ -169,10 +160,11 @@ input[type="url"] {
     left: 50%;
     bottom: 30px;
     font-family: 'Segoe UI', sans-serif;
+    display: none;
 }
 
 #snackbar.show {
-    visibility: visible;
+    display: block;
    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
    animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
@@ -201,7 +193,7 @@ input[type="url"] {
     background-color: #596275;
     color: white;
     width: 100%;
-    /* height: 48pt; */
+    height: 56pt;
     padding: 8pt;
     position: fixed;
     left: 0;

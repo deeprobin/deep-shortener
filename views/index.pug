@@ -42,12 +42,12 @@ html(lang=__('language.id'))
         meta(property="og:url", content="https://sh-rt.ovh")
         meta(property="og:image", content="/img/background.svg")
     body
-      #top
-        #title 
-          div Robins URL Shortener
-          div.no-wrap SH-RT.OVH
-        .only-desktop.text=__('text.description')
       div.container
+        #top
+          #title 
+            div Robins URL Shortener
+            div.no-wrap SH-RT.OVH
+          .only-desktop.text=__('text.description')
         form
           input#urlInput.fail(type="url", placeholder=__('input.url.placeholder'))
           input#submit(type="button", value=__('button.submit.text'), disabled)

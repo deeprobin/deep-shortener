@@ -33,11 +33,10 @@ function ready(fn) {
 }
 
 ready(function() {
-
-  if('serviceWorker' in navigator) {
-    navigator.serviceWorker
-             .register('/js/sw.js')
-             .then(function() { console.log("Service Worker Registered"); });
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/js/sw.js").then(function() {
+      console.log("Service Worker Registered");
+    });
   }
 
   document.getElementById("submit").onclick = function() {
@@ -46,7 +45,10 @@ ready(function() {
       generateShortenLink(text, function(url) {
         if (url != "error") {
           document.getElementById("output").value =
-            "https://" + window.location.hostname.replace("www.", "") + "/" + url;
+            "https://" +
+            window.location.hostname.replace("www.", "") +
+            "/" +
+            url;
         } else {
           console.error("Shortener Error");
         }
@@ -76,10 +78,13 @@ ready(function() {
 
 function onUrlInputChange(event) {
   var expression = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+  u = document.getElementById("urlInput").value;
 
-  if (
-    new RegExp(expression).test(document.getElementById("urlInput").value + "/")
-  ) {
+  if (!u.match(/^[a-zA-Z]+:\/\//)) {
+    u = "http://" + u;
+  }
+
+  if (new RegExp(expression).test(u + "/")) {
     document.getElementById("urlInput").className = "";
     document.getElementById("submit").disabled = false;
   } else {
@@ -115,7 +120,7 @@ function generateShortenLink(longUrl, callback) {
   };
 
   request.onerror = function() {
-    console.log("connection error")
+    console.log("connection error");
     callback("error");
   };
 

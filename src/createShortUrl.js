@@ -14,27 +14,36 @@ module.exports = function(app, logger, db, urlExpression) {
     }
 
     if (new RegExp(urlExpression).test(url + "/")) {
-      try {
-        var id = "id";
-        var has = false;
-        while (!has) {
-          id = generateRandomId();
-          has = db.has(id);
+      urlExists(function(key) {
+        if(!key){
+          try {
+            var id = "id";
+            var has = false;
+            while (!has) {
+              id = generateRandomId();
+              has = db.has(id);
+            }
+    
+            db.set(id, url).write();
+            res.send(id);
+            logger.log(
+              "info",
+              req.ip + " created short url(" + id + ") with url " + url
+            );
+          } catch (ex) {
+            res.send("!!!error!!!");
+            logger.log(
+              "error",
+              "Cannot create short url(" + id + ") Exception: " + ex
+            );
+          }
+        } else {
+          logger.log('info', req.ip + " wanted to create a short url(" + url + ") but it already exists: " + key);
+          res.setHeader('DeepShortener-Data','key already exist')
+          res.send(key);
         }
-
-        db.set(id, url).write();
-        res.send(id);
-        logger.log(
-          "info",
-          req.ip + " created short url(" + id + ") with url " + url
-        );
-      } catch (ex) {
-        res.send("!!!error!!!");
-        logger.log(
-          "error",
-          "Cannot create short url(" + id + ") Exception: " + ex
-        );
-      }
+      }, db, url)
+      
     } else {
       logger.log(
         "warn",
@@ -55,4 +64,14 @@ function generateRandomId() {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
 
   return text;
+}
+
+function urlExists(callback, db, url) {
+  for(key of Object.keys(db.getState())) {
+    if(url === db.getState()[key]) {
+      callback(key);
+      return;
+    }
+  }
+  callback(false);
 }

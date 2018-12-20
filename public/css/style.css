@@ -13,6 +13,9 @@ body {
     overflow: hidden;
 }
 
+
+
+
 form {
     margin-bottom: 52pt;
 }
@@ -98,13 +101,32 @@ input[type="url"] {
 }
 
 #submit:disabled {
-    background-color: rgb(155, 124, 66);
+    background-color: #ffbe76;
+    color: gainsboro;
     cursor: not-allowed;
 }
 
 #submit:enabled:hover {
     background-color: orangered;
 }
+
+.ripple {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .ripple:hover {
+    background: orange radial-gradient(circle, transparent 1%, #f0932b 1%) center/15000%;
+  }
+  .ripple:active {
+    background-color: #f9ca24;
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+
+
+
+
 
   @media only screen and (max-width: 768px) {
 

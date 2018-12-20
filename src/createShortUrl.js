@@ -55,6 +55,11 @@ module.exports = function(app, logger, db, urlExpression) {
   });
 };
 
+/**
+ * Generate random id for short url
+ *
+ * @returns {string} id
+ */
 function generateRandomId() {
   var text = "";
   var possible =
@@ -66,6 +71,15 @@ function generateRandomId() {
   return text;
 }
 
+/**
+ * This function checks whether the url exists in the database
+ *
+ * @callback requestCallback
+ * @param {requestCallback} callback
+ * @param {lowdb.FileSync} db
+ * @param {string} url
+ * @returns {*} nothing
+ */
 function urlExists(callback, db, url) {
   for(key of Object.keys(db.getState())) {
     if(url === db.getState()[key]) {

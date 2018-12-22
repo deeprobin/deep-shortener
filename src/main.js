@@ -4,7 +4,7 @@ const path = require("path");
 
 const low = require("lowdb");
 const winston = require("winston");
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 require("winston-daily-rotate-file");
 
 const logger = winston.createLogger({
@@ -19,9 +19,10 @@ const logger = winston.createLogger({
       format: winston.format.combine(
         winston.format.timestamp(),
         winston.format.simple(),
-        winston.format.printf(msg => 
-          (msg.level, `${msg.timestamp} - ${msg.level}: ${msg.message}`)
-        )),
+        winston.format.printf(
+          msg => (msg.level, `${msg.timestamp} - ${msg.level}: ${msg.message}`)
+        )
+      ),
       colorize: false
     }),
     new winston.transports.Console({
@@ -31,7 +32,8 @@ const logger = winston.createLogger({
   ]
 });
 
-const database_file = process.env.DB_PATH || path.join(__dirname, '../', 'data', 'db.json')
+const database_file =
+  process.env.DB_PATH || path.join(__dirname, "../", "data", "db.json");
 const port = process.env.PORT || 3000;
 const FileSync = require("lowdb/adapters/FileSync");
 
@@ -50,9 +52,15 @@ i18n.configure({
   defaultLocale: "en"
 });
 
-if (process.env.TRUST_PROXY && process.env.TRUST_PROXY.toLowerCase() == "true") {
+if (
+  process.env.TRUST_PROXY &&
+  process.env.TRUST_PROXY.toLowerCase() == "true"
+) {
   app.enable("trust proxy");
-  logger.log("info", "Environment variable TRUST_PROXY is enabled. (The reverse proxy says the ip)")
+  logger.log(
+    "info",
+    "Environment variable TRUST_PROXY is enabled. (The reverse proxy says the ip)"
+  );
 }
 
 app.use(i18n.init);
@@ -60,29 +68,28 @@ app.set("views", path.join(__dirname, "../views/"));
 app.set("view engine", "pug");
 app.disable("x-powered-by");
 
-const defaultHeaders = require('./defaultHeaders.js')
-defaultHeaders(app)
+const defaultHeaders = require("./defaultHeaders.js");
+defaultHeaders(app);
 
 app.get("/", function(req, res) {
   res.render("index");
-  logger.log('info', req.ip + ' loaded main page.')
+  logger.log("info", req.ip + " loaded main page.");
 });
 
 app.use("/", express.static(path.join(__dirname, "../public")));
 
-const legalPages = require('./legalPages.js')
+const legalPages = require("./legalPages.js");
 legalPages(app, logger);
 
 app.all("/favicon.ico", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/img/favicon.ico"))
+  res.sendFile(path.join(__dirname, "../public/img/favicon.ico"));
 });
 
+const createShortUrl = require("./createShortUrl.js");
+createShortUrl(app, logger, db, urlExpression);
 
-const createShortUrl = require('./createShortUrl.js')
-createShortUrl(app, logger, db, urlExpression)
-
-const visitShortUrl = require('./visitShortUrl.js')
-visitShortUrl(app, logger, db, urlExpression)
+const visitShortUrl = require("./visitShortUrl.js");
+visitShortUrl(app, logger, db, urlExpression);
 
 app.listen(port, () =>
   logger.log("info", `URL shortener app listening on port ${port}!`)

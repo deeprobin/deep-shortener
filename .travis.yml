@@ -1,0 +1,11 @@
+os:
+  - linux
+  - osx
+  - windows
+cache: npm
+install:
+  - npm install
+language: node_js
+node_js:
+  - "iojs"
+  - "7"

@@ -4,7 +4,8 @@
   "description": "My url shortener",
   "main": "src/main.js",
   "scripts": {
-    "test": "node ./src/main.js"
+    "test": "node ./src/main.js",
+    "build": ""
   },
   "keywords": [
     "url",
@@ -23,7 +24,9 @@
     "winston": "^3.1.0",
     "winston-daily-rotate-file": "^3.5.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nexe": "^2.0.0-rc.34"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DeepRobin/deep-shortener.git"

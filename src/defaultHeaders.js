@@ -1,7 +1,7 @@
 
 const headers = {
   "Content-Security-Policy":
-    "default-src 'self' 'unsafe-inline' cdnjs.cloudflare.com fonts.googleapis.com ssl.google-analytics.com; style-src 'unsafe-inline' 'self' cdnjs.cloudflare.com fonts.googleapis.com; frame-src 'none'; object-src 'none'; font-src fonts.googleapis.com fonts.gstatic.com",
+    "default-src 'self' 'unsafe-inline' cdnjs.cloudflare.com fonts.googleapis.com ssl.google-analytics.com www.google-analytics.com google-analytics.com; style-src 'unsafe-inline' 'self' cdnjs.cloudflare.com fonts.googleapis.com; frame-src 'none'; object-src 'none'; font-src fonts.googleapis.com fonts.gstatic.com",
   "Strict-Transport-Security": "max-age=63072000",
   "X-Content-Type-Options": "nosniff",
   "X-Frame-Options": "DENY",

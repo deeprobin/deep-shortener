@@ -38,6 +38,8 @@ ready(function() {
       console.log("Service Worker Registered");
     });
   }
+  
+  (adsbygoogle = window.adsbygoogle || []).push({});
 
   document.getElementById("submit").onclick = function() {
     setTimeout(function() {

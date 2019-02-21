@@ -1,4 +1,9 @@
 window.addEventListener("load", function() {
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5919234579329389",
+    enable_page_level_ads: true
+  });
+
   window.cookieconsent.initialise({
     palette: {
       popup: {
@@ -38,8 +43,6 @@ ready(function() {
       console.log("Service Worker Registered");
     });
   }
-  
-  (adsbygoogle = window.adsbygoogle || []).push({});
 
   document.getElementById("submit").onclick = function() {
     setTimeout(function() {
